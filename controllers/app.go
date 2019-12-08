@@ -33,6 +33,7 @@ func (a *App) Run(addr string) {
 
 	// run server
 	fmt.Println("Server listening on http://localhost:8080")
+
 	log.Fatal(http.ListenAndServe(addr, handlers.CORS(allowedHeaders, allowedOrigins, allowedMethods)(a.Router)))
 }
 

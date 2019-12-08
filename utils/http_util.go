@@ -96,7 +96,17 @@ func PostRequest(url string, token string, data interface{}) {
 	//fmt.Println(r)
 }
 
-func GetRequest(url string, token string, params interface{}) {
+func GetRequest(url string, params interface{}) {
+	resp, err := http.Get(url)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	fmt.Println(body)
+}
+
+func SecureGetRequest(url string, token string, params interface{}) {
 	header := req.Header{
 		"Accept":        "application/json",
 		"Authorization": "Bearer " + token,
