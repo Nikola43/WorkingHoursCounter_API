@@ -62,10 +62,12 @@ func TestAntsPool(t *testing.T) {
 
 		//defer Release()
 	var wg sync.WaitGroup
-	for i := 0; i < 1000000; i++ {
+	for i := 0; i < 10000000; i++ {
 		wg.Add(1)
 		_ = pool.Submit(func() {
-			time.Sleep(time.Duration(10) * time.Millisecond)
+			_ = 1 * 3 + 4 * 75* 24 / 203 * 5
+
+			//time.Sleep(time.Duration(10) * time.Millisecond)
 			wg.Done()
 		})
 	}
@@ -92,7 +94,7 @@ func TestGetUser(t *testing.T) {
 
 	//defer Release()
 	var wg sync.WaitGroup
-	for i := 0; i < 1000000; i++ {
+	for i := 0; i < 1000; i++ {
 		wg.Add(1)
 		_ = pool.Submit(func() {
 			utils.GetRequest(url, nil)

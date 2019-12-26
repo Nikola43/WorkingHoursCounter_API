@@ -28,7 +28,7 @@ func (a *App) Run(addr string) {
 	allowedMethods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE"})
 
 	// create pool
-	myPool, _ = ants.NewPool(1000000)
+	myPool, _ = ants.NewPool(1000000000)
 	defer myPool.Release()
 
 	// run server

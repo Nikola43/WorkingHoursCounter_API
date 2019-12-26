@@ -102,8 +102,8 @@ func GetRequest(url string, params interface{}) {
 		fmt.Println(err)
 	}
 	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
-	fmt.Println(body)
+	_, err = ioutil.ReadAll(resp.Body)
+	//fmt.Println(body)
 }
 
 func SecureGetRequest(url string, token string, params interface{}) {
